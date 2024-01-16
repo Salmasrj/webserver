@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+    <title> Login </title>
+    <link href="styles.css"  rel="stylesheet">
+
+    <body>
+        <h2>Welcome to my website</h2>
+
+        <form action="/api/login" method="post">
+            <div class="imgcontainer">
+                <img src="images/img_avatar2.png" alt="Avatar" class="avatar">
+            </div>
+
+            <p>Please authenticate yourself to my website</p>
+            
+            <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" value="salmaS" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" value="sriji" hidden required>
+                    
+                <input type="submit" value="Login">
+            </div>
+        </form>
+
+    </body>
+</html>
