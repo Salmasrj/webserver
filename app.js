@@ -4,14 +4,16 @@ const port = 3000
 
 const database = require('./database.js');
 
-
-
 //static pour avoir accès au data et urlencoded pour recuperer les post
 app.use(express.static('public'))
 app.use(express.urlencoded({extended:true}))
 
-app.get('/test', function (req, res) {
-  res.send('Hello World!')
+app.get('/', function(req,res){
+  res.redirect('/home');
+})
+
+app.get('/home', function(req,res){
+  res.sendFile(__dirname + '/public/landing-page.html');
 })
 
 app.post('/api/login',function(req,res){
