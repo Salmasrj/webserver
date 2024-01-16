@@ -20,15 +20,17 @@ app.post('/api/login',function(req,res){
   for (let i = 0; i < database.users.length; i++){
     const userToCheck = database.users[i];
     if (userToCheck.username == req.body.username && userToCheck.password == req.body.password){
+      
+      const sessionToken = userToCheck.username + '_' + Date.now();
+      res.send(sessionToken);
+
       hasAuthenticatedUser = true;
-      const token = userToCheck.username + '_' + Date.now();
-      res.send("Authenticated ! You are : " + token);
       break;
     }
   }
 
   if (hasAuthenticatedUser === false){
-    res.redirect(401, '/');
+    res.sendStatus(401); // ameliorer avec les web developpers tools sur Edge
     console.log("Unauthenticated !");
   }
   
