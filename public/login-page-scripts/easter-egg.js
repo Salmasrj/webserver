@@ -1,5 +1,5 @@
 const weatherEmojis = ["☀️", "☁️", "⛅", "🌦️", "🌤️"];
-var compt = 0;
+var compt = 1;
 
 function switchEmojis() {
     const emojis = document.getElementById("emoji_icon");
