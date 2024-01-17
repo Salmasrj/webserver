@@ -1,10 +1,12 @@
 const users =[{
     username: 'marco',
-    password: '123'
+    password: '123',
+    city: 'Berlin'
 },
 {
     username: 'salma',
-    password: 'sriji'
+    password: 'sriji',
+    city: 'Paris'
 }
 ]
 

@@ -12,7 +12,7 @@ input[type=text], input[type=password] {
 }
 
 input[type=submit] {
-  background-color: #04AA6D;
+  background-color: #e10404a5;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -23,6 +23,7 @@ input[type=submit] {
 
 input[type=submit]:hover {
   opacity: 0.8;
+  color: black;
 }
 
 .cancelbtn {
@@ -59,4 +60,20 @@ span.psw {
   .cancelbtn {
      width: 100%;
   }
+}
+
+.btn {
+  color: white;
+  border: none;
+  background-color: #d37676;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+}
+/*.btn:hover {background: #eee;}*/
+
+.psw:hover {
+  opacity: 0.8;
+  color: black;
 }

@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
-    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
-    <title> Login </title>
-    <link href="styles.css"  rel="stylesheet">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+        <title> Login </title>
+        <link href="styles.css"  rel="stylesheet">
+        <script src="/login-page-scripts/password-toggle.js" defer></script>
+    </head>
 
     <body>
         <h2>Welcome to my website</h2>
@@ -16,13 +19,15 @@
             
             <div class="container">
                 <label for="username"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="username" value="salma" required>
-
+                    <input type="text" placeholder="Enter Username" name="username" required>
                 <label for="password"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="password" value="sriji" hidden required>
-                    
+                    <input id="password-field" type="password" placeholder="Enter Password" name="password" required>
+                <label>
+                    <button id="password-toggle" type="button" class="btn psw" onclick="togglePasswordField()"> Show Password </button>
+                </label>  
                 <input type="submit" value="Login">
             </div>
+            
         </form>
 
     </body>

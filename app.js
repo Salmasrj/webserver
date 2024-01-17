@@ -15,6 +15,22 @@ app.get('/', function(req,res){
 app.get('/home', function(req,res){
   res.sendFile(__dirname + '/public/landing-page.html');
 })
+//redirection  à partir du username entrée dans l'URL vers une page affichant la ville
+// si faux erreur 404.
+app.get('/api/:username/city', function(req,res){
+  let hasAuthenticatedUser = false;
+  for (let i = 0; i < database.users.length; i++){
+    const userToCheck = database.users[i];
+    if (userToCheck.username == req.params.username){
+      res.send(userToCheck.city);
+      hasAuthenticatedUser = true;
+      break;
+    }
+  }
+  if (hasAuthenticatedUser === false){
+    res.sendStatus(404);
+  }
+})
 
 app.post('/api/login',function(req,res){
   let hasAuthenticatedUser = false;
