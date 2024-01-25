@@ -5,12 +5,13 @@
         <title> Login </title>
         <link href="styles.css"  rel="stylesheet">
         <script src="/login-page-scripts/password-toggle.js" defer></script>
+        <script src="/login-page-scripts/authentification.js" defer></script>
     </head>
 
     <body>
         <h2>Welcome to my website</h2>
 
-        <form action="/api/login" method="post">
+        <form>
             <div class="imgcontainer">
                 <img src="images/img_avatar2.png" alt="Avatar" class="avatar">
             </div>
@@ -18,14 +19,14 @@
             <p>Please authenticate yourself to my website</p>
             
             <div class="container">
-                <label for="username"><b>Username</b></label>
-                    <input type="text" placeholder="Enter Username" name="username" required>
-                <label for="password"><b>Password</b></label>
-                    <input id="password-field" type="password" placeholder="Enter Password" name="password" required>
+                <label><b>Username</b></label>
+                    <input id="username-field" type="text" placeholder="Enter Username" required>
+                <label><b>Password</b></label>
+                    <input id="password-field" type="password" placeholder="Enter Password" required>
                 <label>
                     <button id="password-toggle" type="button" class="btn psw" onclick="togglePasswordField()"> Show Password </button>
                 </label>  
-                <input type="submit" value="Login">
+                <input type="submit" onclick="login(event)" value="Login">
             </div>
             
         </form>

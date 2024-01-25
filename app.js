@@ -35,31 +35,22 @@ app.get('/api/:username/city', function(req,res){
 app.post('/api/login',function(req,res){
   let hasAuthenticatedUser = false;
 
+  console.log(req.body);
   for (let i = 0; i < database.users.length; i++){
     const userToCheck = database.users[i];
     if (userToCheck.username == req.body.username && userToCheck.password == req.body.password){
-      
       const sessionToken = userToCheck.username + '_' + Date.now();
       res.send(sessionToken);
-
       hasAuthenticatedUser = true;
+      console.log("Authenticated !");
       break;
     }
   }
-
   if (hasAuthenticatedUser === false){
     res.sendStatus(401); // ameliorer avec les web developpers tools sur Edge
     console.log("Unauthenticated !");
   }
-  
-  console.log(req.body); //user.body.username affiche juste username
-
-  /*if (req.body.uname === 'salmaS' && req.body.psw === 'sriji' ){
-      res.send('You are logged in ! Password right')
-  }
-  else {
-      res.send('Username or password wrong')
-  }*/
+  //console.log(req.body); user.body.username affiche juste username
 })
 
 app.listen(port, function() {
