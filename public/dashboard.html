@@ -4,17 +4,16 @@
         <title>My Dashboard</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">  
         <link href="styles.css"  rel="stylesheet">
-        <script src="" defer></script>
+        <script src="/dashboard-page-scripts/updateCurrentWeatherInformation.js" defer></script>
     </head>
     <body>
         <h1><span id="username"></span>'s Dashboard</h1>
         <div class="imgcontainer-left">
-            <img src="images/user1.jpg" alt="Avatar" class="avatar"><span id="username"></span>
+            <img src="" alt="Avatar" class="avatar"><span id="username"></span>
         </div>
-        <div class="container-right">
-            <p>First Name: <span id="first-name"></span></p>
-            <p>Last Name: <span id="last-name"></span></p>
-            <p>Email: <span id="email"></span></p>
+        <div class="container">
+            <p id="temperature"></p>
+            <button id="weather-button" type="button" class="btn psw" onclick="updateCurrentWeatherInformation()">Get current temperature.</button>
         </div>
         <div>
             <input type="submit" onclick="" value="Log out">

@@ -24,7 +24,7 @@ app.get('/dashboard', function(req,res){
     return;
   }
   else{ 
-    res.sendFile(__dirname + '/public/login.html');
+    res.redirect('/login.html');
     return;
   }
 })
