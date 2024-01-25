@@ -23,4 +23,30 @@ async function updateCurrentWeatherInformation() {
 
     const temperatureElement = document.getElementById('temperature');
     temperatureElement.textContent = `The current temperature in ${city} is ${temperature}°C`;
+    
+    const weatherCondition = weatherData.weather[0].main;
+    const imgElement = document.createElement('img');
+
+    switch (weatherCondition) {
+    case 'Clear':
+        imgElement.src = '/weather-pictures/Clear.png';
+        break;
+    case 'Clouds':
+        imgElement.src = '/weather-pictures/Clouds.png';
+        break;
+    case 'Rain':
+        imgElement.src = '/weather-pictures/Rain.png';
+        break;
+    case 'Snow':
+        imgElement.src = '/weather-pictures/Snow.png';
+        break;
+    case 'Thunderstorm':
+        imgElement.src = '/weather-pictures/Thunderstorm.png';
+        break;
+    }
+
+    const container = document.getElementById('weather-icon');
+    container.innerHTML = '';
+    container.appendChild(imgElement);
+
 }
