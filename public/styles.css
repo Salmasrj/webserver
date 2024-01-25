@@ -37,10 +37,21 @@ input[type=submit]:hover {
   margin: 24px 0 12px 0;
 }
 
+.imgcontainer-left {
+  text-align: left;
+  margin: 24px 0 12px 0;
+}
+
 img.avatar {
-  width: 40%;
+  width: 50%;
   border-radius: 50%;
 }
+
+.container-right {
+  padding: 16px;
+  text-align: right;
+}
+
 
 .container {
   padding: 16px;
