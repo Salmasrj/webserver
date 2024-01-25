@@ -13,11 +13,15 @@ async function login(e) {
         },
         body: data
     })
-
-    const sessionToken = await response.text();
-
-
+    if (response.status == 200){
+        const sessionToken = await response.text();
+        document.cookie = "sessionToken="+sessionToken; 
+        window.location.href = "/dashboard";
+        return;
+    }
+    else if (response.status != 200){
+        alert("Something went wrong")
+        return;
+    }
     console.log(sessionToken)
-
-
 }
