@@ -6,9 +6,10 @@
         <link href="styles.css"  rel="stylesheet">
         <script src="/dashboard-page-scripts/updateCurrentWeatherInformation.js" defer></script>
         <script src="/dashboard-page-scripts/logout.js" defer></script>
+        <script src="/dashboard-page-scripts/updateUserData.js" defer></script>
     </head>
-    <body>
-        <h1><span id="username"></span>'s Dashboard</h1>
+    <body onload="updateUserData()">
+        <h1><span id="uContainer"></span>'s Dashboard</h1>
         <div class="imgcontainer-left">
             <img src="" id="" alt="Avatar" class="avatar"><span id=""></span>
         </div>

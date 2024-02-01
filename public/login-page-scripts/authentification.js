@@ -16,6 +16,7 @@ async function login(e) {
     if (response.status == 200){
         const sessionToken = await response.text();
         document.cookie = "sessionToken="+sessionToken; 
+        sessionStorage.setItem('username', uname);
         window.location.href = "/dashboard";
         return;
     }
