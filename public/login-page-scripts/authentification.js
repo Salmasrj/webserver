@@ -20,8 +20,14 @@ async function login(e) {
         return;
     }
     else if (response.status != 200){
-        alert("Something went wrong")
+        displayErrorMessage("Wrong username or password");
         return;
     }
     console.log(sessionToken)
+}
+
+function displayErrorMessage(message) {
+    const errorContainer = document.getElementById('errorContainer');
+    errorContainer.textContent = message;
+    errorContainer.style.color = 'red';
 }
