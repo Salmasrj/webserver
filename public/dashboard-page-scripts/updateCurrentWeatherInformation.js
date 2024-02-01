@@ -1,7 +1,16 @@
 async function updateCurrentWeatherInformation() {
     const apiKey = "76cb01ad9a2578a192f7863c7ec385fd";
-    const city = "Berlin";
-    const url = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`;
+
+    // Find the user's city
+    const usernData = sessionStorage.getItem('username');
+    const cityResponse = await fetch(`/api/${usernData}/city`);
+    if (!cityResponse.ok) {
+        throw new Error(`HTTP error! status: ${cityResponse.status}`);
+    }
+    const cityData = await cityResponse.text();
+    console.log(cityData);
+
+    const url = `https://api.openweathermap.org/geo/1.0/direct?q=${cityData}&limit=1&appid=${apiKey}`;
 
     // Fetch the coordinates
     const response = await fetch(url);
@@ -22,7 +31,7 @@ async function updateCurrentWeatherInformation() {
     const temperature = weatherData.main.temp;
 
     const temperatureElement = document.getElementById('temperature');
-    temperatureElement.textContent = `The current temperature in ${city} is ${temperature}°C`;
+    temperatureElement.textContent = `The current temperature in ${cityData} is ${temperature}°C`;
     
     const weatherCondition = weatherData.weather[0].main;
     const imgElement = document.createElement('img');
@@ -50,3 +59,4 @@ async function updateCurrentWeatherInformation() {
     container.appendChild(imgElement);
 
 }
+
