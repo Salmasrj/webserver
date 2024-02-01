@@ -1,14 +1,9 @@
-async function updateCurrentWeatherInformation() {
+async function updateCurrentWeatherInformation(e) {
     const apiKey = "76cb01ad9a2578a192f7863c7ec385fd";
 
     // Find the user's city
     const usernData = sessionStorage.getItem('username');
-    const cityResponse = await fetch(`/api/${usernData}/city`);
-    if (!cityResponse.ok) {
-        throw new Error(`HTTP error! status: ${cityResponse.status}`);
-    }
-    const cityData = await cityResponse.text();
-    console.log(cityData);
+    const cityData = sessionStorage.getItem('city');
 
     const url = `https://api.openweathermap.org/geo/1.0/direct?q=${cityData}&limit=1&appid=${apiKey}`;
 
@@ -57,6 +52,5 @@ async function updateCurrentWeatherInformation() {
     const container = document.getElementById('weather-icon');
     container.innerHTML = '';
     container.appendChild(imgElement);
-
 }
 
