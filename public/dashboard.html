@@ -7,6 +7,7 @@
         <script src="/dashboard-page-scripts/updateCurrentWeatherInformation.js" defer></script>
         <script src="/dashboard-page-scripts/logout.js" defer></script>
         <script src="/dashboard-page-scripts/updateUserData.js" defer></script>
+        <script src="/dashboard-page-scripts/searchWeather.js" defer></script>
     </head>
     <body onload="updateUserData()">
         <h1><span id="uContainer"></span>'s Dashboard</h1>
@@ -14,11 +15,15 @@
             <img src="" id="imContainer" class="avatar"><span id=""></span>
         </div>
         <div class="container">
-            <p id="temperature"></p>
             <button id="weather-button" type="button" class="btn psw" onclick="updateCurrentWeatherInformation(event)">Get current weather.</button>
+            <p id="temperature"></p>
         </div>
-        <div class="imgcontainer" id="weather-icon">
-            
+        <div class="container">
+            <label><b>Research a city's weather</b></label>
+            <input id="citySearch" type="text" placeholder="Enter the city" required>
+            <button id="weather-button" type="button" class="btn psw" onclick="searchWeatherInformation(event)">Get the city's weather.</button>
+            <p id="research_temperature"></p>
+            <p id="city_temperature"></p>
         </div>
         <div>
             <input type="submit" onclick="logout()" value="Log out">
