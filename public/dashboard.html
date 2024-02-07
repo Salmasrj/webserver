@@ -8,6 +8,7 @@
         <script src="/dashboard-page-scripts/logout.js" defer></script>
         <script src="/dashboard-page-scripts/updateUserData.js" defer></script>
         <script src="/dashboard-page-scripts/searchWeather.js" defer></script>
+        <script src="/dashboard-page-scripts/updateForecast.js" defer></script>
     </head>
     <body onload="updateUserData()">
         <h1><span id="uContainer"></span>'s Dashboard</h1>
@@ -15,9 +16,49 @@
             <img src="" id="imContainer" class="avatar"><span id=""></span>
         </div>
         <div class="container">
-            <button id="weather-button" type="button" class="btn psw" onclick="updateCurrentWeatherInformation(event)">Get current weather.</button>
+            <button id="weather-button" type="button" class="btn psw" onclick="updateCurrentWeatherInformation(event); updateForecast(event);">Get current weather.</button>
             <p id="temperature"></p>
+            <p id="weather-icon"></p>
         </div>
+
+        <div class="slidingContainer" id="slidingContainer">
+            <div class="card">
+                <div class="container">
+                    <h3 id="date1"> Date and time :</h3>
+                    <h4><b id="weather1">Short weather description</b></h4>
+                    <p id="temp1">the temperature</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="container">
+                    <h3 id="date2"> Date and time :</h3>
+                    <h4><b id="weather2">Short weather description</b></h4>
+                    <p id="temp2">the temperature</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="container">
+                    <h3 id="date3"> Date and time :</h3>
+                    <h4><b id="weather3">Short weather description</b></h4>
+                    <p id="temp3">the temperature</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="container">
+                    <h3 id="date4"> Date and time :</h3>
+                    <h4><b id="weather4">Short weather description</b></h4>
+                    <p id="temp4">the temperature</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="container">
+                    <h3 id="date5"> Date and time :</h3>
+                    <h4><b id="weather5">Short weather description</b></h4>
+                    <p id="temp5">the temperature</p>
+                </div>
+            </div>
+        </div>
+
         <div class="container">
             <label><b>Research a city's weather</b></label>
             <input id="citySearch" type="text" placeholder="Enter the city" required>
