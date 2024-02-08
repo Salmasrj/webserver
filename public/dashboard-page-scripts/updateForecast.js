@@ -1,8 +1,5 @@
 async function updateForecast(e) {
-    //document.getElementById("slidingContainer").hidden = false;
     const apiKey = "76cb01ad9a2578a192f7863c7ec385fd";
-
-    // Find the user's city
     const usernData = sessionStorage.getItem('username');
     const cityData = sessionStorage.getItem('city');
 
@@ -16,39 +13,32 @@ async function updateForecast(e) {
     const data = await response.json();
     const lon = data[0].lon;
     const lat = data[0].lat;
-    
-    
 
     const weatherUrl = `https://api.openweathermap.org/data/2.5/forecast?units=metric&lat=${lat}&lon=${lon}&appid=${apiKey}`;
-
-    const options = {weekday: "short", month: "short", day: "numeric", hour:"numeric"}
-    
-    let dateTimes = [];
-    let shortWeathers = [];
-    let temperatures = [];
-    
-    
-
-    for (let i = 1; i <= 5; i++) {    
-        const weatherResponse = await fetch(weatherUrl);
-        if (!weatherResponse.ok) {
-            throw new Error(`HTTP error! status: ${weatherResponse.status}`);
-        }
-        const weatherData = await weatherResponse.json();
-        temperatures[i] = weatherData.list[i].main.temp;
-        const temperaturesField = document.getElementById("temp"+i);
-        temperaturesField.textContent = `${temperatures[i]}`;
-
-        shortWeathers[i] = weatherData.list[i].weather[0].main;
-        const shortWeathersField = document.getElementById("weather"+i);
-        shortWeathersField.textContent = `${shortWeathers[i]}`;
-
-        dateTimes[i] = weatherData.list[i].dt_txt.main;
-        const dateTimesField = document.getElementById("date"+i);
-        dateTimesField.textContent = `${dateTimes[i].toLocaleDateString("en-US", options)}`;
-
+    const weatherResponse = await fetch(weatherUrl);
+    if (!weatherResponse.ok) {
+        throw new Error(`HTTP error! status: ${weatherResponse.status}`);
     }
+    const weatherData = await weatherResponse.json();
+    const slidingContainer = document.getElementById("slidingContainer");
+    slidingContainer.innerHTML = "";
+    slidingContainer.className = 'slidingContainer';
+    const options = {weekday: "short", month: "short", day: "numeric", hour:"numeric"}
 
-        // remplir avec les infos demander
-
+    weatherData.list.forEach(element => {
+        const newcard = document.createElement('div');
+        newcard.className = 'card';
+        const temperatures = Math.round(element.main.temp);
+        const shortWeathers = element.weather[0].main;
+        const dateTimes = new Date(element.dt_txt);
+        
+        newcard.innerHTML = `
+        <div class="container">
+            <h3 id="date"> ${dateTimes.toLocaleDateString("en-US", options)}</h3>
+            <h4><b id="weather">Short weather description : </b> ${shortWeathers}</h4>
+            <p id="temp">${temperatures} C</p>
+        </div>
+        `;
+        slidingContainer.appendChild(newcard);
+    });
 }

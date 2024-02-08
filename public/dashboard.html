@@ -4,6 +4,7 @@
         <title>My Dashboard</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">  
         <link href="styles.css"  rel="stylesheet">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <script src="/dashboard-page-scripts/updateCurrentWeatherInformation.js" defer></script>
         <script src="/dashboard-page-scripts/logout.js" defer></script>
         <script src="/dashboard-page-scripts/updateUserData.js" defer></script>
@@ -11,63 +12,39 @@
         <script src="/dashboard-page-scripts/updateForecast.js" defer></script>
     </head>
     <body onload="updateUserData()">
-        <h1><span id="uContainer"></span>'s Dashboard</h1>
-        <div class="imgcontainer-left">
-            <img src="" id="imContainer" class="avatar"><span id=""></span>
+        <div class="w3-top">
+            <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+              <a class="w3-bar-item w3-button"><span id="uContainer"></span>'s Dashboard</a>
+              <div class="w3-right w3-hide-small">
+                <input class="w3-bar-item w3-button" type="submit" onclick="logout()" value="Log out">
+              </div>
+            </div>
         </div>
-        <div class="container">
-            <button id="weather-button" type="button" class="btn psw" onclick="updateCurrentWeatherInformation(event); updateForecast(event);">Get current weather.</button>
-            <p id="temperature"></p>
-            <p id="weather-icon"></p>
-        </div>
+        <br><br><br><br><br>
 
-        <div class="slidingContainer" id="slidingContainer">
-            <div class="card">
-                <div class="container">
-                    <h3 id="date1"> Date and time :</h3>
-                    <h4><b id="weather1">Short weather description</b></h4>
-                    <p id="temp1">the temperature</p>
-                </div>
+        <div class="column-container">
+            <div>
+                <img src="" id="imContainer" class="avatarish"><span id=""></span>
             </div>
-            <div class="card">
-                <div class="container">
-                    <h3 id="date2"> Date and time :</h3>
-                    <h4><b id="weather2">Short weather description</b></h4>
-                    <p id="temp2">the temperature</p>
-                </div>
+            <div>
+                <h1><span id="uContainer0"></span>'s Dashboard</h1>
+                <h1 id="weather-icon"></h1>
+                <h1 id="temperature"><button id="weather-button" type="button" class="btn psw" onclick="updateCurrentWeatherInformation(event); updateForecast(event);">Get current weather.</button></h1><br>
             </div>
-            <div class="card">
-                <div class="container">
-                    <h3 id="date3"> Date and time :</h3>
-                    <h4><b id="weather3">Short weather description</b></h4>
-                    <p id="temp3">the temperature</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="container">
-                    <h3 id="date4"> Date and time :</h3>
-                    <h4><b id="weather4">Short weather description</b></h4>
-                    <p id="temp4">the temperature</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="container">
-                    <h3 id="date5"> Date and time :</h3>
-                    <h4><b id="weather5">Short weather description</b></h4>
-                    <p id="temp5">the temperature</p>
-                </div>
-            </div>
+        </div>
+      
+        <div id="slidingContainer">
+            
         </div>
 
         <div class="container">
             <label><b>Research a city's weather</b></label>
             <input id="citySearch" type="text" placeholder="Enter the city" required>
-            <button id="weather-button" type="button" class="btn psw" onclick="searchWeatherInformation(event)">Get the city's weather.</button>
-            <p id="research_temperature"></p>
+            <p id="research_temperature">
+                <button id="weather-button" type="button" class="btn psw" onclick="searchWeatherInformation(event)">Get the city's weather.</button>
+            </p>
             <p id="city_temperature"></p>
         </div>
-        <div>
-            <input type="submit" onclick="logout()" value="Log out">
-        </div>
+        
     </body>
 </html>

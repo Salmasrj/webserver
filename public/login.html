@@ -4,33 +4,43 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
         <title> Login </title>
         <link href="styles.css"  rel="stylesheet">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <script src="/login-page-scripts/password-toggle.js" defer></script>
         <script src="/login-page-scripts/authentification.js" defer></script>
     </head>
 
     <body>
-        <h2>Welcome to my website</h2>
-
-        <form>
-            <div class="imgcontainer">
-                <img src="images/img_avatar2.png" alt="Avatar" class="avatar">
+        <div class="w3-top">
+            <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+              <a href="landing-page.html" class="w3-bar-item w3-button">Weather website</a>
+              <div class="w3-right w3-hide-small">
+              </div>
             </div>
+        </div>
+        <br><br><br><br>    
+        <h1 class="w3-center">Please authenticate yourself to my website</h1><br>
+        <div class="w3-content" style="max-width:1100px">
+            <form>
+                <div class="imgcontainer">
+                    <img src="images/img_avatar2.png" alt="Avatar" class="avatar">
+                </div>
 
-            <p>Please authenticate yourself to my website</p>
-            
-            <div class="container">
-                <label><b>Username</b></label>
-                    <input id="username-field" type="text" placeholder="Enter Username" required>
-                <label><b>Password</b></label>
-                    <input id="password-field" type="password" placeholder="Enter Password" required>
-                    <p id="errorContainer"></p>
-                <label>
-                    <button id="password-toggle" type="button" class="btn psw" onclick="togglePasswordField()"> Show Password </button>
-                </label>  
-                <input type="submit" onclick="login(event)" value="Login">
-            </div>
-            
-        </form>
+                <p></p>
+                
+                <div class="container">
+                    <label><b>Username</b></label>
+                        <input id="username-field" type="text" placeholder="Enter Username" required>
+                    <label><b>Password</b></label>
+                        <input id="password-field" type="password" placeholder="Enter Password" required>
+                        <p id="errorContainer"></p>
+                    <label>
+                        <button id="password-toggle" type="button" class="btn psw" onclick="togglePasswordField()"> Show Password </button>
+                    </label>  
+                    <input type="submit" onclick="login(event)" value="Login">
+                </div>
+                
+            </form>
+        </div>
 
     </body>
 </html>

@@ -1,7 +1,9 @@
 async function updateUserData(){
     const usernData = sessionStorage.getItem('username');
     const usernameContainer = document.getElementById('uContainer');
+    const usernameContainer0 = document.getElementById('uContainer0');
     usernameContainer.textContent = usernData;
+    usernameContainer0.textContent = usernData;
 
     // Find the user's city
     const cityResponse = await fetch(`/api/${usernData}/city`);

@@ -1,11 +1,11 @@
 const users =[{
-    username: 'marco',
+    username: 'Marco',
     password: '123',
     city: 'Berlin',
     profilePicturePath: '/profile-pictures/marco.jpg'
 },
 {
-    username: 'lola',
+    username: 'Lola',
     password: 'qwer',
     city: 'Paris',
     profilePicturePath: '/profile-pictures/lola.jpg'
