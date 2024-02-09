@@ -118,10 +118,10 @@ span.psw {
   transition: 0.3s;
   overflow: clip; 
   flex: 0 0 auto;
-  height: 30vw; 
+  height: 25vw; 
   border-radius: 5px; 
   background-color: #d37676;
-  max-height: 300px;
+  max-height: 200px;
 }
 
 
