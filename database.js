@@ -9,6 +9,18 @@ const users =[{
     password: 'qwer',
     city: 'Paris',
     profilePicturePath: '/profile-pictures/lola.jpg'
+},
+{
+    username: 'Emma',
+    password: 'hello',
+    city: 'Marseille',
+    profilePicturePath: '/profile-pictures/emma.jpg'
+},
+{
+    username: 'Lucas',
+    password: 'world',
+    city: 'Lyon',
+    profilePicturePath: '/profile-pictures/lucas.jpg'
 }
 ]
 

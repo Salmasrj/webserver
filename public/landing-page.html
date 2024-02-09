@@ -1,57 +1,74 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Welcome to this weather page</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
-        <link href="style-test.css"  rel="stylesheet">
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <script src="/login-page-scripts/easter-egg.js" defer></script> 
-    </head>
-    <body>
+<html lang="eng">
+  <head>
+      <title>Welcome to this weather page</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+      <link href="styles.css"  rel="stylesheet">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <script src="/landing-page-scripts/easter-egg.js" defer></script> 
+      <script src="/landing-page-scripts/picture-slide.js" defer></script> 
+  </head>
 
-        <!-- Navbar (sit on top) -->
-        <div class="w3-top">
-          <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-            <a href="#home" class="w3-bar-item w3-button">Weather website</a>
-            <div class="w3-right w3-hide-small">
-              <a href="#about" class="w3-bar-item w3-button">About us</a>
-              <a href="login.html" class="w3-bar-item w3-button">Log In</a>
-            </div>
-          </div>
+  <body>
+    <div class="w3-top">
+      <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px; position: fixed;">
+        <a class="w3-bar-item w3-button">Weather website</a>
+        <div class="w3-right w3-hide-small">
+          <a href="#about" class="w3-bar-item w3-button">About us</a>
+          <a href="login.html" class="w3-bar-item w3-button">Log In</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="slideshow-container">
+      <div class="mySlides fade">
+        <div class="numbertext">1 / 3</div>
+        <img src="images/clouds.jpg" style="width:100vw; height:75vh;margin-left: 0;padding-left: 0;">
+      </div>
+      <div class="mySlides fade">
+        <div class="numbertext">2 / 3</div>
+        <img src="images/sun.jpg" style="width:100vw; height:75vh;margin-left: 0;padding-left: 0;">
+      </div>
+      <div class="mySlides fade">
+        <div class="numbertext">3 / 3</div>
+        <img src="images/snow.jpg" style="width:100vw; height:75vh;margin-left: 0;padding-left: 0;">
+      </div>
+
+      <div class="text">
+        <h1 style="z-index: -1; color: black; background-color: #f2f2f2a0; width: 50%;">Welcome to this weather website 
+          <span id="emoji_icon" onclick="switchEmojis()">☀️</span>
+        </h1>
+      </div>
+
+      <div class="text" style="text-align: center;">
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+      </div>
+    </div>
+    <br>
+    <div style="text-align:center">
+      <span class="dot" onclick="currentSlide(1)"></span> 
+      <span class="dot" onclick="currentSlide(2)"></span> 
+      <span class="dot" onclick="currentSlide(3)"></span> 
+    </div>
+      
+    <div class="w3-content" style="max-width:1100px">
+      <div class="w3-row w3-padding-64" id="about">
+        <div class="w3-col m6 w3-padding-large w3-hide-small">
+          <img src="images/article.jpg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
         </div>
         
-        <!-- Header -->
-        <header class="w3-display-container w3-content w3-wide"  id="home">
-          <img class="center" src="images/clouds.jpg" alt="">
-          <div class="w3-display-bottomleft w3-padding-large w3-opacity">
-            <h1 class="w3-xxlarge overlay">Welcome to this weather website <span id="emoji_icon" onclick="switchEmojis()">☀️</span></h1>
-          </div>
-        </header>
-        
-        <!-- Page content -->
-        <div class="w3-content" style="max-width:1100px">
-        
-          <!-- About Section -->
-          <div class="w3-row w3-padding-64" id="about">
-            <div class="w3-col m6 w3-padding-large w3-hide-small">
-             <img src="images/article.jpg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
-            </div>
-        
-            <div class="w3-col m6 w3-padding-large">
-              <h1 class="w3-center">About Us</h1><br>
-              <h5 class="w3-center">Computer Science </h5>
-              <p class="w3-large">This is the index for the programming course. To log in, press the button on the navbar. Enjoy !</p>
-            </div>
-          </div>
-          
-        <!-- End page content -->
+        <div class="w3-col m6 w3-padding-large">
+          <h1 class="w3-center">About Us</h1><br>
+          <h5 class="w3-center">Computer Science </h5>
+          <p class="w3-large">This is the index for the programming course. <br> To log in, press the button on the navbar. Enjoy !</p>
         </div>
-        
-        <!-- Footer -->
-        <footer class="w3-center w3-light-grey w3-padding-32">
-          <p>By <a class="w3-hover-text-green">Salma SRIJI</a></p>
-        </footer>
-        
-    </body>
-     
+      </div>
+    </div>
+
+    <footer class="w3-center w3-light-grey w3-padding-32">
+      <p>By <a class="w3-hover-text-green">Salma SRIJI</a></p>
+    </footer>
+  </body>
+
 </html>

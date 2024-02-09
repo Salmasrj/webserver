@@ -1,13 +1,9 @@
 async function updateCurrentWeatherInformation(e) {
     const apiKey = "76cb01ad9a2578a192f7863c7ec385fd";
-
-    // Find the user's city
     const usernData = sessionStorage.getItem('username');
     const cityData = sessionStorage.getItem('city');
 
     const url = `https://api.openweathermap.org/geo/1.0/direct?q=${cityData}&limit=1&appid=${apiKey}`;
-
-    // Fetch the coordinates
     const response = await fetch(url);
     if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -16,7 +12,6 @@ async function updateCurrentWeatherInformation(e) {
     const lon = data[0].lon;
     const lat = data[0].lat;
 
-    // Fetch the weather information
     const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${lat}&lon=${lon}&appid=${apiKey}`;
     const weatherResponse = await fetch(weatherUrl);
     if (!weatherResponse.ok) {

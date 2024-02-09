@@ -5,7 +5,6 @@ async function updateForecast(e) {
 
     const url = `https://api.openweathermap.org/geo/1.0/direct?q=${cityData}&limit=1&appid=${apiKey}`;
 
-    // Fetch the coordinates
     const response = await fetch(url);
     if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -32,11 +31,40 @@ async function updateForecast(e) {
         const shortWeathers = element.weather[0].main;
         const dateTimes = new Date(element.dt_txt);
         
+        const imgElement = document.createElement('img');
+
+        switch (shortWeathers) {
+        case 'Clear':
+            imgElement.src = '/weather-pictures/Clear.png';
+            break;
+        case 'Clouds':
+            imgElement.src = '/weather-pictures/Clouds.png';
+            break;
+        case 'Rain':
+            imgElement.src = '/weather-pictures/Rain.png';
+            break;
+        case 'Snow':
+            imgElement.src = '/weather-pictures/Snow.png';
+            break;
+        case 'Thunderstorm':
+            imgElement.src = '/weather-pictures/Thunderstorm.png';
+            break;
+        }
+
         newcard.innerHTML = `
-        <div class="container">
-            <h3 id="date"> ${dateTimes.toLocaleDateString("en-US", options)}</h3>
-            <h4><b id="weather">Short weather description : </b> ${shortWeathers}</h4>
-            <p id="temp">${temperatures} C</p>
+        <div class="row">
+            <div class="column-container">
+                <div class="container">
+                    <h3 id="date"> ${dateTimes.toLocaleDateString("en-US", options)}</h3>
+                    <h4><b id="weather">Weather condition : </b> ${shortWeathers}</h4>
+                </div>
+                <div class="container">
+                    <img id="weather-icon-card" src="${imgElement.src}" alt="weather-icon">
+                </div>
+            </div>
+            <div class="column-container">
+                <p id="temp">The temparature will be : ${temperatures}°C</p>
+            </div>
         </div>
         `;
         slidingContainer.appendChild(newcard);
